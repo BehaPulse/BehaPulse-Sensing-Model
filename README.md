@@ -62,7 +62,7 @@ BeHa Pulse 감지 모델은 저가형 ESP32 장치의 Channel State Information 
 ## 디렉토리구조
 
 ```
-- BehaPulse-Sensing-Model/
+BehaPulse-Sensing-Model/
         ├── README.md
         ├── config # 설정 디렉토리
         │   ├── inference_config.yaml
