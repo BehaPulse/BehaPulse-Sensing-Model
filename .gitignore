@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
 
 results/
+models/__pycache__/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -195,4 +196,4 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
-models/__pycache__/utils.cpython-38.pyc
+
