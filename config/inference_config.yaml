@@ -1,0 +1,10 @@
+TRAIN:
+  train_serial: '20240827_2153'
+
+PREDICT: 
+  gpu: 0
+  seed: 40
+
+BehaPulse:
+  Base_url : 'http://192.9.200.141'
+  Port: 8000

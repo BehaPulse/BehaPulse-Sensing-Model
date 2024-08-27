@@ -1,0 +1,60 @@
+DIRECTORY:
+  dataset: data
+  mac_address: 
+    - 78:21:84:BB:2A:84
+    - 78:21:84:BB:42:9C
+
+label_map:
+  empty: 0
+  lie: 1
+  sit: 2
+
+
+TRAINER:
+  model: ViT
+  optimizer: adamw
+  learning_rate: 0.00001
+  loss: crossentropy
+
+  step_size : 10
+  gamma : 0.9
+  
+  metric:
+  - accuracy
+  - f1macro
+
+  n_epochs: 200
+  early_stopping_target: val_accuracy
+  early_stopping_patience: 10
+  early_stopping_mode: max
+  early_stopping_threshold: 0.001
+  amp: false
+  gpu: 0
+  seed: 40
+
+MODEL:
+  ViT :
+    in_channels: 1  
+    patch_size: 2
+    embed_dim: 256
+    num_layers: 12
+    num_heads: 8
+    mlp_dim: 128
+
+DATASET:
+  val_size: 0.1
+  window_size: 10
+
+DATALOADER:
+  batch_size: 64
+  shuffle: true
+
+LOGGER:
+  debug: false
+  wandb: false
+  logging_interval: 100
+  plot:
+  - loss
+  - accuracy
+  - f1macro
+  - elapsed_time
