@@ -5,3 +5,6 @@ pandas
 wandb
 scikit-learn
 matplotlib
+torchvision
+torchsummary
+thop

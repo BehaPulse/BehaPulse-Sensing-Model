@@ -13,6 +13,8 @@ import requests
 import torch.nn.functional as F
 
 import time
+import warnings
+warnings.filterwarnings('ignore')
 
 # Config
 PROJECT_DIR = os.path.dirname(__file__)
