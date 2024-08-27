@@ -8,3 +8,8 @@ PREDICT:
 BehaPulse:
   Base_url : 'http://192.9.200.141'
   Port: 8000
+
+label_map_ko:
+  sit : "앉아있는 상태"
+  empty : "사용자 없음"
+  lie : "누워있는 상태"

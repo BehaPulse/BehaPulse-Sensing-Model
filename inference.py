@@ -37,7 +37,7 @@ random.seed(predict_config['PREDICT']['seed'])
 model_name = train_config['TRAINER']['model']
 
 label_dict = train_config['label_map']
-
+label_dict_ko = predict_config['label_map_ko']
 # Gpu
 os.environ['CUDA_VISIBLE_DEVICES'] = str(predict_config['PREDICT']['gpu'])
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -92,7 +92,7 @@ if __name__ == '__main__' :
             # 라벨을 문자열로 변환
             predicted_label_str = list(label_dict.keys())[list(label_dict.values()).index(predicted_label.item())]
             
-            print(f"Final predicted label: {predicted_label_str}")
+            # print(f"Final predicted label: {predicted_label_str}")
             
             # mac address를 기반으로 personId 가져오기
             api_url = f"{predict_config['BehaPulse']['Base_url']}:{predict_config['BehaPulse']['Port']}/device/{mac_address[0]}"
@@ -107,16 +107,10 @@ if __name__ == '__main__' :
             response = requests.get(api_url)
             personId = response.json()['user_dashboard_device'][2]
             
-            predicted_label_ko = ""
-            
-            if predicted_label_str == 'sit' :
-                predicted_label_ko = "앉아있는 상태"
-            elif predicted_label_str == 'empty' :
-                predicted_label_ko = "사용자 없음"
-            elif predicted_label_str == 'lie' :
-                predicted_label_ko = "누워있는 상태"
+            predicted_label_ko = label_dict_ko.get(predicted_label_str, "")
+
                 
-            print(f"Predicted label: {predicted_label_ko}")
+            print(f"상태 : {predicted_label_ko}")
             
             api_url = f"{predict_config['BehaPulse']['Base_url']}:{predict_config['BehaPulse']['Port']}/dashboard/update/state/{personId}"
             response = requests.put(api_url, json={"status":predicted_label_ko})
