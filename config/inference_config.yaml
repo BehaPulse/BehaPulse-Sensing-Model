@@ -6,10 +6,11 @@ PREDICT:
   seed: 40
 
 BehaPulse:
-  Base_url : 'http://192.9.200.141'
-  Port: 8000
+  host : '192.9.200.141'
+  port : 443
+  protocol : 'https'
 
 label_map_ko:
-  sit : "앉아있는 상태"
-  empty : "사용자 없음"
-  lie : "누워있는 상태"
+  empty : '비어있음'
+  lie : '누워있음'
+  sit : '앉아있음'
