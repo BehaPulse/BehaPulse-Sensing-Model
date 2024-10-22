@@ -79,7 +79,7 @@ def main():
                     process_text_file(file_name, "(modified)" + file_name)
                     
                     # Flask Server로 CSI 데이터 전송
-                    send_file_lines_as_json('http://192.9.200.141:8000/device/CSI', "(modified)" + file_name)
+                    send_file_lines_as_json('https://192.9.200.141/device/CSI', "(modified)" + file_name)
 
                 except UnicodeDecodeError as e:
                     print(f"Failed to decode data: {e}")
